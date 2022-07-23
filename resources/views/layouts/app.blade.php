@@ -69,6 +69,9 @@
                                     <a href="{{url('admin/item')}}" class="dropdown-item">
                                         Items
                                     </a>
+                                    <a href="{{url('admin/order')}}" class="dropdown-item">
+                                        Orders
+                                    </a>
 
                                     <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
                                         @csrf

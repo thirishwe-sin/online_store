@@ -6,6 +6,7 @@ use App\Http\Controllers\PageController;
 use App\Http\Controllers\Admin\CategoryController;
 use App\Http\Controllers\Admin\ItemController;
 use App\Http\Controllers\OrderController;
+use App\Http\Controllers\Admin\AdminOrderController;
 
 /*
 |--------------------------------------------------------------------------
@@ -23,10 +24,12 @@ Route::prefix('admin')->group(function(){
 
 Route::prefix('admin')->group(function(){
     Route::resource('item', ItemController::class);
+    Route::resource('order', AdminOrderController::class );
 });
 
 Route::get('/', [PageController::class, 'landing']);
-Route::get('/buy/now/check/out/{item_id}', [OrderController::class, 'buyNowCheckOut']);
+Route::get('/buy/now/check/out/form/{item_id}', [OrderController::class, 'buyNowCheckOutForm']);
+Route::post('/buy/now/check/out/{item_id}', [OrderController::class, 'buyNowCheckOut']);
 
 Auth::routes();
 
